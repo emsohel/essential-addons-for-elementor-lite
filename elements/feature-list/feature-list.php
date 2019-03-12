@@ -544,6 +544,38 @@ class Widget_Eael_Feature_List extends Widget_Base {
 			]
 		);
 
+		$this->add_responsive_control(
+			'eael_feature_list_text_align',
+			[
+				'label' => __( 'Alignment', 'elementor' ),
+				'type' => Controls_Manager::CHOOSE,
+				'options' => [
+					'left' => [
+						'title' => __( 'Left', 'elementor' ),
+						'icon' => 'fa fa-align-left',
+					],
+					'center' => [
+						'title' => __( 'Center', 'elementor' ),
+						'icon' => 'fa fa-align-center',
+					],
+					'right' => [
+						'title' => __( 'Right', 'elementor' ),
+						'icon' => 'fa fa-align-right',
+					],
+					'justify' => [
+						'title' => __( 'Justified', 'elementor' ),
+						'icon' => 'fa fa-align-justify',
+					],
+				],
+				'condition' => [
+					'eael_feature_list_icon_position' => 'top',
+				],
+				'selectors' => [
+					'{{WRAPPER}} .eael-feature-list-item' => 'text-align: {{VALUE}};',
+				],
+			]
+		);
+
 		$this->add_control(
 			'eael_feature_list_heading_title',
 			[
