@@ -660,6 +660,9 @@ class Widget_Eael_Feature_List extends Widget_Base {
 				'name'     => 'eael_feature_list_description_typography',
 				'selector' => '{{WRAPPER}} .eael-feature-list-content-box .eael-feature-list-content',
 				'scheme'   => Scheme_Typography::TYPOGRAPHY_3,
+                'fields_options' => [
+	                'font_size' => [ 'default' => [ 'unit' => 'px', 'size' => 14 ] ]
+                ]
 			]
 		);
 
