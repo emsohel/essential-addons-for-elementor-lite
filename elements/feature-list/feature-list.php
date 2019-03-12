@@ -47,17 +47,17 @@ class Widget_Eael_Feature_List extends Widget_Base {
 					[
 						'eael_feature_list_icon'    => 'fa fa-check',
 						'eael_feature_list_title'   => esc_html__( 'Feature Item 1', 'essential-addons-elementor' ),
-						'eael_feature_list_content' => esc_html__( 'Feature Item 1 content', 'essential-addons-elementor' )
+						'eael_feature_list_content' => esc_html__( 'Lorem ipsum dolor sit amet, consectetur adipisi cing elit, sed do eiusmod tempor incididunt ut abore et dolore magna', 'essential-addons-elementor' )
 					],
 					[
 						'eael_feature_list_icon'    => 'fa fa-times',
 						'eael_feature_list_title'   => esc_html__( 'Feature Item 2', 'essential-addons-elementor' ),
-						'eael_feature_list_content' => esc_html__( 'Feature Item 2 content', 'essential-addons-elementor' )
+						'eael_feature_list_content' => esc_html__( 'Lorem ipsum dolor sit amet, consectetur adipisi cing elit, sed do eiusmod tempor incididunt ut abore et dolore magna', 'essential-addons-elementor' )
 					],
 					[
 						'eael_feature_list_icon'    => 'fa fa-dot-circle-o',
 						'eael_feature_list_title'   => esc_html__( 'Feature Item 3', 'essential-addons-elementor' ),
-						'eael_feature_list_content' => esc_html__( 'Feature Item 3 content', 'essential-addons-elementor' )
+						'eael_feature_list_content' => esc_html__( 'Lorem ipsum dolor sit amet, consectetur adipisi cing elit, sed do eiusmod tempor incididunt ut abore et dolore magna', 'essential-addons-elementor' )
 					]
 				],
 				'fields'      => [
