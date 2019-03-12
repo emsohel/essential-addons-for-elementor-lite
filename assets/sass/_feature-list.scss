@@ -82,13 +82,20 @@
 
             .eael-feature-list-icon-box {
                 z-index: 2;
+                @include transition(all .5s);
+
+                .eael-feature-list-icon-inner {
+                    background-color: #37368e;
+                    @include transition(all .5s);
+                    display: inline-flex;
+                }
 
                 .eael-feature-list-icon {
                     padding: .5em;
                     @include transition(all .5s);
                     font-size: 30px;
                     line-height: 1;
-                    color: #818a91;
+                    color: #37368e;
                     text-align: center;
                     display: inline-flex;
 
@@ -119,13 +126,15 @@
                 margin: 0 0 0 20px;
 
                 .eael-feature-list-title {
-                    margin-top: 0;
+                    margin-top: -6px;
+                    //margin-top: 0;
                     line-height: 1.5em;
                 }
 
                 .eael-feature-list-content {
                     padding: 0;
                     margin: 0;
+                    font-size: 14px;
                     line-height: 1.5em;
                 }
             }
@@ -134,7 +143,7 @@
         &.stacked {
             .eael-feature-list-icon-box {
                 .eael-feature-list-icon {
-                    background-color: #818a91;
+                    //background-color: #818a91;
                     color: $white;
                 }
             }
@@ -143,7 +152,6 @@
         &.framed {
             .eael-feature-list-icon-box {
                 .eael-feature-list-icon {
-                    border: 1px solid #818a91;
                     background-color: $white;
                 }
             }
@@ -151,8 +159,12 @@
 
         &.circle {
             .eael-feature-list-icon-box {
-                .eael-feature-list-icon {
+                .eael-feature-list-icon-inner {
                     @include border-radius(50%);
+
+                    .eael-feature-list-icon {
+                        @include border-radius(50%);
+                    }
                 }
             }
         }
@@ -165,14 +177,19 @@
 
         &.rhombus {
             .eael-feature-list-icon-box {
-                .eael-feature-list-icon {
+                .eael-feature-list-icon-inner {
                     transform: rotate(45deg);
                     margin: 15px;
+                }
+
+                .eael-feature-list-icon {
+                    //transform: rotate(45deg);
+                    //margin: 15px;
 
                     i {
-                        -ms-transform: rotate(-43deg);
-                        -webkit-transform: rotate(-43deg);
-                        transform: rotate(-43deg);
+                        -ms-transform: rotate(-45deg);
+                        -webkit-transform: rotate(-45deg);
+                        transform: rotate(-45deg);
                     }
 
                     img {

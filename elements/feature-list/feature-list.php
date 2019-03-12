@@ -2,6 +2,8 @@
 
 namespace Elementor;
 
+use Elementor\Group_Control_Background;
+
 if ( ! defined( 'ABSPATH' ) ) {
 	exit;
 } // If this file is called directly, abort.
@@ -356,22 +358,34 @@ class Widget_Eael_Feature_List extends Widget_Base {
 			]
 		);
 
-		$this->add_control(
-			'eael_feature_list_primary_color',
+		$this->add_group_control(
+			Group_Control_Background::get_type(),
 			[
-				'label'     => esc_html__( 'Primary Color', 'essential-addons-elementor' ),
-				'type'      => Controls_Manager::COLOR,
-				'scheme'    => [
-					'type'  => Scheme_Color::get_type(),
-					'value' => Scheme_Color::COLOR_1,
+				'name' => 'eael_feature_list_icon_background',
+				'types' => [ 'classic', 'gradient' ],
+				'color' => [
+					'default'   => '#3858f4',
 				],
-				'default'   => '#3858f4',
-				'selectors' => [
-					'{{WRAPPER}} .eael-feature-list-items.stacked .eael-feature-list-icon' => 'background-color: {{VALUE}};',
-					'{{WRAPPER}} .eael-feature-list-items.framed .eael-feature-list-icon'  => 'color: {{VALUE}}; border-color: {{VALUE}};',
-				],
+				'selector' => '{{WRAPPER}} .eael-feature-list-items .eael-feature-list-icon-box .eael-feature-list-icon-inner',
 			]
 		);
+
+//		$this->add_control(
+//			'eael_feature_list_primary_color',
+//			[
+//				'label'     => esc_html__( 'Primary Color', 'essential-addons-elementor' ),
+//				'type'      => Controls_Manager::COLOR,
+//				'scheme'    => [
+//					'type'  => Scheme_Color::get_type(),
+//					'value' => Scheme_Color::COLOR_1,
+//				],
+//				'default'   => '#3858f4',
+//				'selectors' => [
+//					'{{WRAPPER}} .eael-feature-list-items.stacked .eael-feature-list-icon' => 'background-color: {{VALUE}};',
+//					'{{WRAPPER}} .eael-feature-list-items.framed .eael-feature-list-icon'  => 'color: {{VALUE}}; border-color: {{VALUE}};',
+//				],
+//			]
+//		);
 
 		$this->add_control(
 			'eael_feature_list_secondary_color',
@@ -381,7 +395,104 @@ class Widget_Eael_Feature_List extends Widget_Base {
 				'default'   => '#ffffff',
 				'selectors' => [
 					'{{WRAPPER}} .eael-feature-list-items.framed .eael-feature-list-icon'  => 'background-color: {{VALUE}};',
-					'{{WRAPPER}} .eael-feature-list-items.stacked .eael-feature-list-icon' => 'color: {{VALUE}};',
+				],
+				'condition' => [
+					'eael_feature_list_icon_shape_view' => 'framed',
+				],
+				'separator' => 'before',
+			]
+		);
+
+		$this->add_control(
+			'eael_feature_list_icon_color',
+			[
+				'label'     => esc_html__( 'Color', 'essential-addons-elementor' ),
+				'type'      => Controls_Manager::COLOR,
+				'default'   => '',
+				'selectors' => [
+					'{{WRAPPER}} .eael-feature-list-items .eael-feature-list-icon' => 'color: {{VALUE}};',
+				],
+				'separator' => 'before',
+			]
+		);
+
+		$this->add_responsive_control(
+			'eael_feature_list_icon_size',
+			[
+				'label'     => esc_html__( 'Size', 'essential-addons-elementor' ),
+				'type'      => Controls_Manager::SLIDER,
+				'default'   => [
+					'size' => 30,
+				],
+				'range'     => [
+					'px' => [
+						'min' => 6,
+						'max' => 300,
+					],
+				],
+				'selectors' => [
+					'{{WRAPPER}} .eael-feature-list-icon-box .eael-feature-list-icon' => 'font-size: {{SIZE}}{{UNIT}};',
+					'{{WRAPPER}} .eael-feature-list-img' => 'width: {{SIZE}}{{UNIT}}; height: {{SIZE}}{{UNIT}};',
+				],
+			]
+		);
+
+		$this->add_responsive_control(
+			'eael_feature_list_icon_padding',
+			[
+				'label'     => esc_html__( 'Padding', 'essential-addons-elementor' ),
+				'type'      => Controls_Manager::SLIDER,
+				'default'   => [
+					'size' => 15,
+				],
+				'range'     => [
+					'px' => [
+						'min' => 0,
+						'max' => 50,
+					],
+				],
+				'selectors' => [
+					'{{WRAPPER}} .eael-feature-list-icon-box .eael-feature-list-icon' => 'padding: {{SIZE}}{{UNIT}};',
+				],
+			]
+		);
+
+		$this->add_control(
+			'eael_feature_list_icon_border_width',
+			[
+				'label'     => esc_html__( 'Border Width', 'essential-addons-elementor' ),
+				'type'      => Controls_Manager::SLIDER,
+				'default'   => [
+					'size' => 1,
+				],
+				'range'     => [
+					'px' => [
+						'min' => 1,
+						'max' => 50,
+					],
+				],
+				'selectors' => [
+					'{{WRAPPER}} .eael-feature-list-icon-box .eael-feature-list-icon-inner' => 'padding: {{SIZE}}{{UNIT}};',
+
+				],
+				'condition' => [
+					'eael_feature_list_icon_shape_view' => 'framed',
+				],
+			]
+		);
+
+		$this->add_control(
+			'eael_feature_list_icon_border_radius',
+			[
+				'label'      => esc_html__( 'Border Radius', 'essential-addons-elementor' ),
+				'type'       => Controls_Manager::DIMENSIONS,
+				'size_units' => [ 'px', '%' ],
+				'selectors'  => [
+					'{{WRAPPER}} .eael-feature-list-icon-box .eael-feature-list-icon-inner' => 'border-radius: {{TOP}}{{UNIT}} {{RIGHT}}{{UNIT}} {{BOTTOM}}{{UNIT}} {{LEFT}}{{UNIT}};',
+					'{{WRAPPER}} .eael-feature-list-icon-box .eael-feature-list-icon' => 'border-radius: {{TOP}}{{UNIT}} {{RIGHT}}{{UNIT}} {{BOTTOM}}{{UNIT}} {{LEFT}}{{UNIT}};',
+				],
+				'condition' => [
+					'eael_feature_list_icon_shape_view' => 'framed',
 				],
 			]
 		);
@@ -415,80 +526,6 @@ class Widget_Eael_Feature_List extends Widget_Base {
 					'(mobile){{WRAPPER}}.-mobile-icon-position-left .eael-feature-list-content-box'                                                                                                                  => 'margin: {{SIZE}}{{UNIT}} 0 0 0 !important;',
 					'(mobile){{WRAPPER}}.-mobile-icon-position-right .eael-feature-list-content-box'                                                                                                                 => 'margin: {{SIZE}}{{UNIT}} 0 0 0 !important;',
 				],
-			]
-		);
-
-		$this->add_responsive_control(
-			'eael_feature_list_icon_size',
-			[
-				'label'     => esc_html__( 'Size', 'essential-addons-elementor' ),
-				'type'      => Controls_Manager::SLIDER,
-				'default'   => [
-					'size' => 30,
-				],
-				'range'     => [
-					'px' => [
-						'min' => 6,
-						'max' => 300,
-					],
-				],
-				'selectors' => [
-					'{{WRAPPER}} .eael-feature-list-icon' => 'font-size: {{SIZE}}{{UNIT}};',
-					'{{WRAPPER}} .eael-feature-list-img' => 'width: {{SIZE}}{{UNIT}}; height: {{SIZE}}{{UNIT}};',
-				],
-			]
-		);
-
-		$this->add_responsive_control(
-			'eael_feature_list_icon_padding',
-			[
-				'label'     => esc_html__( 'Padding', 'essential-addons-elementor' ),
-				'type'      => Controls_Manager::SLIDER,
-				'default'   => [
-					'size' => 15,
-				],
-				'range'     => [
-					'px' => [
-						'min' => 0,
-						'max' => 50,
-					],
-				],
-				'selectors' => [
-					'{{WRAPPER}} .eael-feature-list-icon' => 'padding: {{SIZE}}{{UNIT}};',
-				],
-			]
-		);
-
-		$this->add_control(
-			'eael_feature_list_icon_border_width',
-			[
-				'label'     => esc_html__( 'Border Width', 'essential-addons-elementor' ),
-				'type'      => Controls_Manager::DIMENSIONS,
-				'default'   => [
-					'top'    => '1',
-					'right'  => '1',
-					'bottom' => '1',
-					'left'   => '1',
-					'unit'   => 'px',
-				],
-				'selectors' => [
-					'{{WRAPPER}} .eael-feature-list-icon' => 'border-width: {{TOP}}{{UNIT}} {{RIGHT}}{{UNIT}} {{BOTTOM}}{{UNIT}} {{LEFT}}{{UNIT}};',
-				],
-				'condition' => [
-					'eael_feature_list_icon_shape_view' => 'framed',
-				],
-			]
-		);
-
-		$this->add_control(
-			'eael_feature_list_icon_border_radius',
-			[
-				'label'      => esc_html__( 'Border Radius', 'essential-addons-elementor' ),
-				'type'       => Controls_Manager::DIMENSIONS,
-				'size_units' => [ 'px', '%' ],
-				'selectors'  => [
-					'{{WRAPPER}} .eael-feature-list-icon' => 'border-radius: {{TOP}}{{UNIT}} {{RIGHT}}{{UNIT}} {{BOTTOM}}{{UNIT}} {{LEFT}}{{UNIT}};',
-				]
 			]
 		);
 
@@ -683,6 +720,7 @@ class Widget_Eael_Feature_List extends Widget_Base {
 					<?php if ( $feature_has_icon ) : ?>
 
                         <div class="eael-feature-list-icon-box">
+                            <div class="eael-feature-list-icon-inner">
                         <<?php echo implode( ' ', [
 							$feature_icon_tag,
 							$feature_icon_attributes,
@@ -705,6 +743,7 @@ class Widget_Eael_Feature_List extends Widget_Base {
                         <?php } ?>
 
                         </<?php echo $feature_icon_tag; ?>>
+                            </div>
                         </div>
 
 					<?php endif; ?>
