@@ -307,7 +307,7 @@ class Widget_Eael_Feature_List extends Widget_Base {
 					'type'  => Scheme_Color::get_type(),
 					'value' => Scheme_Color::COLOR_1,
 				],
-				'default'   => '#3858f4',
+				'default'   => '#37368e',
 				'selectors' => [
 					'{{WRAPPER}} .connector-type-classic .connector'                                                                                      => 'border-color: {{VALUE}};',
 					'{{WRAPPER}} .connector-type-modern .eael-feature-list-item:before, {{WRAPPER}} .connector-type-modern .eael-feature-list-item:after' => 'border-color: {{VALUE}};',
@@ -489,7 +489,7 @@ class Widget_Eael_Feature_List extends Widget_Base {
 				'size_units' => [ 'px', '%' ],
 				'selectors'  => [
 					'{{WRAPPER}} .eael-feature-list-icon-box .eael-feature-list-icon-inner' => 'border-radius: {{TOP}}{{UNIT}} {{RIGHT}}{{UNIT}} {{BOTTOM}}{{UNIT}} {{LEFT}}{{UNIT}};',
-					'{{WRAPPER}} .eael-feature-list-icon-box .eael-feature-list-icon' => 'border-radius: {{TOP}}{{UNIT}} {{RIGHT}}{{UNIT}} {{BOTTOM}}{{UNIT}} {{LEFT}}{{UNIT}};',
+					'{{WRAPPER}} .eael-feature-list-icon-box .eael-feature-list-icon-inner .eael-feature-list-icon' => 'border-radius: {{TOP}}{{UNIT}} {{RIGHT}}{{UNIT}} {{BOTTOM}}{{UNIT}} {{LEFT}}{{UNIT}};',
 				],
 				'condition' => [
 					'eael_feature_list_icon_shape_view' => 'framed',
@@ -523,8 +523,8 @@ class Widget_Eael_Feature_List extends Widget_Base {
 				],
 				'selectors'       => [
 					'{{WRAPPER}}.-icon-position-left .eael-feature-list-content-box, {{WRAPPER}}.-icon-position-right .eael-feature-list-content-box, {{WRAPPER}}.-icon-position-top .eael-feature-list-content-box' => 'margin: {{SIZE}}{{UNIT}};',
-					'(mobile){{WRAPPER}}.-mobile-icon-position-left .eael-feature-list-content-box'                                                                                                                  => 'margin: {{SIZE}}{{UNIT}} 0 0 0 !important;',
-					'(mobile){{WRAPPER}}.-mobile-icon-position-right .eael-feature-list-content-box'                                                                                                                 => 'margin: {{SIZE}}{{UNIT}} 0 0 0 !important;',
+					'(mobile){{WRAPPER}}.-mobile-icon-position-left .eael-feature-list-content-box'                                                                                                                  => 'margin: 0 0 0 {{SIZE}}{{UNIT}} !important;',
+					'(mobile){{WRAPPER}}.-mobile-icon-position-right .eael-feature-list-content-box'                                                                                                                 => 'margin: 0 {{SIZE}}{{UNIT}} 0 0 !important;',
 				],
 			]
 		);
