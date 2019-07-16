@@ -236,6 +236,10 @@ $elements = [
                 'key'    => 'price-menu',
                 'title'  => __( 'Price menu', 'essential-addons-elementor' ),
                 'is_pro' => true
+            ],
+            [
+                'key'   => 'logo-grid',
+                'title' => __( 'Logo Grid', 'essential-addons-elementor' )
             ]
         ]
     ],

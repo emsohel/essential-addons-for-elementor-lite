@@ -150,6 +150,7 @@ trait Core
             'caldera-form',
             'wpforms',
             'global-elements-control',
+            'logo-grid'
         ], 1);
 
         $values = get_option('eael_save_settings');

@@ -363,6 +363,14 @@ class Bootstrap
                     ],
                 ],
             ],
+            'logo-grid' => [
+                'class' => '\Essential_Addons_Elementor\Elements\Logo_Grid',
+                'dependency' => [
+                    'css' => [
+                        //EAEL_PLUGIN_PATH . DIRECTORY_SEPARATOR . 'assets/front-end/css/logo-grid/index.min.css',
+                    ],
+                ],
+            ],
         ]);
 
         // extensions classmap
